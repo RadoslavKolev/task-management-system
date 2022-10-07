@@ -5,7 +5,23 @@ function App() {
     <div>
       <h2>Hello World</h2>
 
-      <ExpenseItem />
+      <ExpenseItem
+        date="March 28th 2022"
+        title="Car Insurance"
+        price="294.76"
+      />
+
+      <ExpenseItem
+        date="March 29th 2022"
+        title="Homework"
+        price="288.80"
+      />
+
+      <ExpenseItem
+        date="March 30th 2022"
+        title="Pay Taxes"
+        price="304.25"
+      />
     </div>
   );
 }

@@ -23,7 +23,7 @@ function App() {
     {
       id: "e4",
       title: "New Desk (Wooden)",
-      amount: 450.00,
+      amount: 450.0,
       date: new Date(2022, 5, 12),
     },
   ];
@@ -32,14 +32,14 @@ function App() {
     <div>
       <h2>Hello World</h2>
 
-      {expenses.map(obj => 
-        <ExpenseItem 
+      {expenses.map((obj) => (
+        <ExpenseItem
           key={obj.id}
           title={obj.title}
           amount={obj.amount}
           date={obj.date}
         />
-      )}
+      ))}
     </div>
   );
 }

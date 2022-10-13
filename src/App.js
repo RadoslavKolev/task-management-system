@@ -1,27 +1,45 @@
 import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
+  const expenses = [
+    {
+      id: "e1",
+      title: "Toilet Paper",
+      amount: 94.12,
+      date: new Date(2021, 7, 14),
+    },
+    {
+      id: "e2",
+      title: "New TV",
+      amount: 799.49,
+      date: new Date(2022, 2, 12),
+    },
+    {
+      id: "e3",
+      title: "Car Insurance",
+      amount: 294.67,
+      date: new Date(2022, 2, 28),
+    },
+    {
+      id: "e4",
+      title: "New Desk (Wooden)",
+      amount: 450.00,
+      date: new Date(2022, 5, 12),
+    },
+  ];
+
   return (
     <div>
       <h2>Hello World</h2>
 
-      <ExpenseItem
-        date="March 28th 2022"
-        title="Car Insurance"
-        price="294.76"
-      />
-
-      <ExpenseItem
-        date="March 29th 2022"
-        title="Homework"
-        price="288.80"
-      />
-
-      <ExpenseItem
-        date="March 30th 2022"
-        title="Pay Taxes"
-        price="304.25"
-      />
+      {expenses.map(obj => 
+        <ExpenseItem 
+          key={obj.id}
+          title={obj.title}
+          amount={obj.amount}
+          date={obj.date}
+        />
+      )}
     </div>
   );
 }

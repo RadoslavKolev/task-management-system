@@ -1,5 +1,5 @@
 import React from "react";
-import ExpenseDate from "./ExpenseDate";
+import ExpenseDate from "../expenseDate/ExpenseDate";
 import "./ExpenseItem.css";
 
 const ExpenseItem = ({ title, amount, date }) => {

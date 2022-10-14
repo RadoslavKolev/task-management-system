@@ -2,17 +2,59 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
+  //? Multiple useState approach
+  //* GOOD APPROACH
   const [userTitle, setUserTitle] = useState('');
   const [userAmount, setUserAmount] = useState('');
   const [userDate, setUserDate] = useState('');
 
-  // event.target.value always returns STRING
+  //* "event.target.value" always returns a STRING *//
   const titleChangeHandler = event => setUserTitle(event.target.value);
   const amountChangeHandler = event => setUserAmount(event.target.value);
   const dateChangeHandler = event => setUserDate(event.target.value);
 
+  /**
+   * *  Single useState approach
+   * ! BAD APPROACH
+   * 
+     const [userInput, setUserInput] = useState({
+       userTitle: '',
+       userAmount: '',
+       userDate: '',
+     });
+
+  * * Same for the other handlers
+     const titleChangeHandler = event => {
+       setUserInput({
+         ...userInput,
+         userTitle: event.target.value,
+       });
+
+       setUserInput((prevState) => {
+         return {
+           ...prevState,
+           userTitle: event.target.value,
+         }
+       });
+     }
+  */
+
+  // prevents the default browser behavior
+  // prevents the reloading of the page when submitting
+  const submitHandler = (e) => {
+    e.preventDefault();  
+    
+    const expenseData = {
+      title: userTitle,
+      amount: userAmount,
+      date: new Date(userDate),
+    };
+
+    console.log(expenseData);
+  };
+
   return (
-    <form action="">
+    <form onSubmit={submitHandler}>
       <div className='new-expense__controls'>
         <div className='new-expense__control'>
           <label>Title</label>

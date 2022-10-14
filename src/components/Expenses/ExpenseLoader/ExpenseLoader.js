@@ -1,9 +1,9 @@
 import React from "react";
-import ExpenseItem from "../expenseItem/ExpenseItem";
-import Card from "../card/Card";
-import "./Expenses.css";
+import Card from "../../UI/Card/Card";
+import ExpenseItem from "../ExpenseItem/ExpenseItem";
+import "./ExpenseLoader.css";
 
-const Expenses = ({ data }) => {
+const ExpenseLoader = ({ data }) => {
   return (
     <Card className="expenses">
       <ExpenseItem
@@ -16,4 +16,4 @@ const Expenses = ({ data }) => {
   );
 };
 
-export default Expenses;
+export default ExpenseLoader;

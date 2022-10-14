@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import ExpenseDate from "../expenseDate/ExpenseDate";
-import Card from "../card/Card";
+import ExpenseDate from "../ExpenseDate/ExpenseDate";
+import Card from "../../UI/Card/Card";
 import "./ExpenseItem.css";
 
 const ExpenseItem = ({ titleProp, amount, date }) => {
   const [title, setTitle] = useState(titleProp);
+  console.log("ExpenseItem evaluated by React");
 
   const clickHandler = () => {
+    console.log(`Old title: ${title}`);
     setTitle("Updated!");
-    console.log('Updated!');
   };
 
   return (
@@ -20,9 +21,7 @@ const ExpenseItem = ({ titleProp, amount, date }) => {
         <div className="expense-item__price">${amount.toFixed(2)}</div>
       </div>
 
-      <button onClick={clickHandler}>
-        Change Title
-      </button>
+      <button onClick={clickHandler}>Change Title</button>
     </Card>
   );
 };

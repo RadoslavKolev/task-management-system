@@ -30,9 +30,15 @@ const App = () => {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    expenses.push(expense);
+    console.log(expenses);
+  };
+
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpenseHandler={addExpenseHandler} />
 
       {expenses.map((obj) => (
         <ExpenseLoader data={obj} />

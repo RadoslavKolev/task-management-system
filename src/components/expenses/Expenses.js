@@ -8,7 +8,7 @@ const Expenses = ({ data }) => {
     <Card className="expenses">
       <ExpenseItem
         key={data.id}
-        title={data.title}
+        titleProp={data.title}
         amount={data.amount}
         date={data.date}
       />

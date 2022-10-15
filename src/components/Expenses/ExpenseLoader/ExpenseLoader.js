@@ -22,7 +22,7 @@ const ExpenseLoader = ({ data }) => {
           onChangeFilter={filterChangeHandler}
         />
 
-        {/* We can also make a conditional rendering */}
+        {/* Renders the items - We can also make a conditional rendering */}
         <ExpensesList data={filteredExpenses} />
       </Card>
     </div>

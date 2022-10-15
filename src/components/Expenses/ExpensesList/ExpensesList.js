@@ -13,7 +13,7 @@ const ExpensesList = ({ data }) => {
         data.map((obj) => (
           <ExpenseItem
             key={obj.id}
-            titleProp={obj.title}
+            title={obj.title}
             amount={obj.amount}
             date={obj.date}
           />

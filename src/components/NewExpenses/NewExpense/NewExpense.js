@@ -4,21 +4,32 @@ import "./NewExpense.css";
 
 const NewExpense = ({ onAddExpenseHandler }) => {
   const [userId, setUserId] = useState(5);
+  const [isEditing, setIsEditing] = useState(false);
 
-  // Function that extracts data from Child component
+  //* Function that shows/hides the input form
+  const editingHandler = () => setIsEditing((prevState) => !prevState);
+
+  //* Function that extracts data from the Child component
   const extractData = (enteredFormData) => {
     const extractedData = {
-      id: 'e' + userId,
+      id: "e" + userId,
       ...enteredFormData,
     };
 
-    setUserId(prevId => prevId + 1);
-    onAddExpenseHandler(extractedData)
+    setUserId((prevId) => prevId + 1);
+    onAddExpenseHandler(extractedData);
   };
 
   return (
     <div className="new-expense">
-      <ExpenseForm onExtractData={extractData} />
+      {isEditing ? (
+        <ExpenseForm
+          onExtractData={extractData}
+          onStopEditing={editingHandler}
+        />
+      ) : (
+        <button onClick={editingHandler}>Add New Expense</button>
+      )}
     </div>
   );
 };

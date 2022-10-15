@@ -36,8 +36,8 @@ const App = () => {
   //* Takes the extracted data and sets the new state
   //* returns new array with the data on the front
   const addExpenseHandler = (expense) => {
-    setExpenses((prevExpenses) => {
-      return [expense, ...prevExpenses];
+    setExpenses((prevArr) => {
+      return [expense, ...prevArr];
     });
   };
 

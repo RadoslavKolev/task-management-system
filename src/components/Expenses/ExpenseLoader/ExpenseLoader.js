@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import Card from "../../UI/Card/Card";
-import ExpenseItem from "../ExpenseItem/ExpenseItem";
-import "./ExpenseLoader.css";
 import ExpensesFilter from "../ExpensesFilter/ExpensesFilter";
+import ExpensesList from "../ExpensesList/ExpensesList";
+import "./ExpenseLoader.css";
 
 const ExpenseLoader = ({ data }) => {
   const [filteredYear, setFilteredYear] = useState("2022");
 
   const filterChangeHandler = (selectedYear) => setFilteredYear(selectedYear);
 
-  const filteredExpenses = data.filter(obj => 
-    obj.date.getFullYear().toString() === filteredYear
+  //* Filtering the items by selected year
+  const filteredExpenses = data.filter(
+    (obj) => obj.date.getFullYear().toString() === filteredYear
   );
 
   return (
@@ -21,14 +22,8 @@ const ExpenseLoader = ({ data }) => {
           onChangeFilter={filterChangeHandler}
         />
 
-        {filteredExpenses.map((obj) => (
-          <ExpenseItem
-            key={obj.id}
-            titleProp={obj.title}
-            amount={obj.amount}
-            date={obj.date}
-          />
-        ))}
+        {/* We can also make a conditional rendering */}
+        <ExpensesList data={filteredExpenses} />
       </Card>
     </div>
   );

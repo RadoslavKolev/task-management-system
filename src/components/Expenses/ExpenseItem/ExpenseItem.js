@@ -13,18 +13,20 @@ const ExpenseItem = ({ titleProp, amount, date }) => {
   };
 
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={date} />
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={date} />
 
-      <div className="expense-item__description">
-        <h2>{title}</h2>
-        <div className="expense-item__price">
-          ${Number(amount).toFixed(2)}
+        <div className="expense-item__description">
+          <h2>{title}</h2>
+          <div className="expense-item__price">
+            ${Number(amount).toFixed(2)}
+          </div>
         </div>
-      </div>
 
-      <button onClick={clickHandler}>Change Title</button>
-    </Card>
+        <button onClick={clickHandler}>Change Title</button>
+      </Card>
+    </li>
   );
 };
 

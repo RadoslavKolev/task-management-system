@@ -30,19 +30,23 @@ const App = () => {
     },
   ];
 
+  // TODO: Render the added task automatically
   const addExpenseHandler = (expense) => {
     expenses.push(expense);
     console.log(expenses);
   };
 
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
 
   return (
     <div>
       <NewExpense onAddExpenseHandler={addExpenseHandler} />
-
-      {expenses.map((obj) => (
-        <ExpenseLoader data={obj} />
-      ))}
+      <ExpenseLoader data={expenses} />
     </div>
   );
 };

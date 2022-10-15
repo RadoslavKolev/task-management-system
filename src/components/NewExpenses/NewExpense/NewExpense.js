@@ -12,7 +12,7 @@ const NewExpense = ({ onAddExpenseHandler }) => {
       ...enteredFormData,
     };
 
-    setUserId(userId + 1);
+    setUserId(prevId => prevId + 1);
     onAddExpenseHandler(extractedData)
   };
 

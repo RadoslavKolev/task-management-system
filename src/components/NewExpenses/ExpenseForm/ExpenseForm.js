@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = ({ onExtractData }) => {
-  //? Multiple useState approach
-  //* GOOD APPROACH
+  //* Multiple useState approach - GOOD APPROACH
   const [userTitle, setUserTitle] = useState("");
   const [userAmount, setUserAmount] = useState("");
   const [userDate, setUserDate] = useState("");
@@ -39,9 +38,10 @@ const ExpenseForm = ({ onExtractData }) => {
      }
   */
 
-  // prevents the default browser behavior
-  // prevents the reloading of the page when submitting
+  //* Function that handles the form submit
   const submitHandler = (e) => {
+    //* prevents the default browser behavior
+    //* prevents the reloading of the page when submitting
     e.preventDefault();
 
     const expenseData = {
@@ -50,10 +50,10 @@ const ExpenseForm = ({ onExtractData }) => {
       date: new Date(userDate),
     };
 
-    // Passing the object to the parent component
+    //* Passing the object to the parent component
     onExtractData(expenseData);
 
-    // Clearing the Form
+    //* Clearing the Form
     //* Look at the "value" property of the <input>
     setUserTitle("");
     setUserAmount("");
@@ -64,13 +64,21 @@ const ExpenseForm = ({ onExtractData }) => {
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
-          <label>Title</label>
-          <input type="text" value={userTitle} onChange={titleChangeHandler} />
+          <label htmlFor="title">Title</label>
+          <input 
+            type="text" 
+            id="title" 
+            name="title" 
+            value={userTitle} 
+            onChange={titleChangeHandler} 
+          />
         </div>
         <div className="new-expense__control">
-          <label>Amount</label>
+          <label htmlFor="amount">Amount</label>
           <input
             type="number"
+            id="amount" 
+            name="amount"
             min="0.01"
             step="0.01"
             value={userAmount}
@@ -78,9 +86,11 @@ const ExpenseForm = ({ onExtractData }) => {
           />
         </div>
         <div className="new-expense__control">
-          <label>Date</label>
+          <label htmlFor="date">Date</label>
           <input
             type="date"
+            id="date" 
+            name="date"
             min="2019-01-01"
             max="2022-12-31"
             value={userDate}

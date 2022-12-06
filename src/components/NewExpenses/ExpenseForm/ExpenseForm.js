@@ -46,7 +46,7 @@ const ExpenseForm = ({ onExtractData, onStopEditing }) => {
 
     const expenseData = {
       title: userTitle,
-      amount: userAmount,
+      amount: Number(userAmount),
       date: new Date(userDate),
     };
 
